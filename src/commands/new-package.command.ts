@@ -5,7 +5,8 @@ import * as mkdirp from "mkdirp";
 import { InputBoxOptions, OpenDialogOptions, Uri, window } from "vscode";
 import { existsSync, lstatSync, writeFile } from "fs";
 import {
-  getPubsbecPackageTemplate,
+  getPubsbecTemplate,
+  getAnalysisOptionsTemplate,
 } from "../templates";
 
 
@@ -70,7 +71,8 @@ async function generatePackageCode(
   }
 
   await Promise.all([
-    createPackageTemplate(packageName, targetDirectory),
+    createPubspecTemplate(packageName, targetDirectory),
+    createAnalysisOptionsTemplate(packageName, targetDirectory),
   ]);
 }
 
@@ -85,7 +87,7 @@ function createDirectory(targetDirectory: string): Promise<void> {
   });
 }
 
-function createPackageTemplate(
+function createPubspecTemplate(
   packageName: string,
   targetDirectory: string,
 ) {
@@ -97,7 +99,32 @@ function createPackageTemplate(
   return new Promise<void>(async (resolve, reject) => {
     writeFile(
       targetPath,
-      getPubsbecPackageTemplate(snakeCasePackageName),
+      getPubsbecTemplate(snakeCasePackageName),
+      "utf8",
+      (error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve();
+      }
+    );
+  });
+}
+
+function createAnalysisOptionsTemplate(
+  packageName: string,
+  targetDirectory: string,
+) {
+  const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
+  const targetPath = `${targetDirectory}/${snakeCasePackageName}/analysis_options.yaml`;
+  if (existsSync(targetPath)) {
+    throw Error(`analysis_options.yaml inside ${snakeCasePackageName} already exists`);
+  }
+  return new Promise<void>(async (resolve, reject) => {
+    writeFile(
+      targetPath,
+      getAnalysisOptionsTemplate(),
       "utf8",
       (error) => {
         if (error) {

@@ -1,10 +1,10 @@
 import * as changeCase from "change-case";
 
-export function getPubsbecPackageTemplate(name: string): string {
-    return getDefultPubspecPackageTemplate(name);
+export function getPubsbecTemplate(name: string): string {
+    return getDefultPubspecTemplate(name);
 }
 
-function getDefultPubspecPackageTemplate(name: string): string {
+function getDefultPubspecTemplate(name: string): string {
 //   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `name: ${snakeCaseName}
