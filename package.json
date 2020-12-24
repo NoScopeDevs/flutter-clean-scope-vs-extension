@@ -1,6 +1,6 @@
 {
-	"name": "riverpod-clean-architecture",
-	"displayName": "Riverpod Clean Architecture",
+	"name": "flutter-clean-architecture",
+	"displayName": "Flutter Clean Architecture",
 	"description": "An extension that will let you create a flutter project with a clean architecture setup",
 	"version": "0.0.1",
 	"engines": {
@@ -10,7 +10,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:riverpod-clean-architecture.helloWorld",
 		"onCommand:extension.new-package"
 	],
 	"main": "./out/extension.js",
@@ -18,7 +17,7 @@
 		"commands": [
 			{
 				"command": "extension.new-package",
-				"title": "Clean Riverpod: New Package"
+				"title": "Clean Flutter: New Package"
 			}
 		],
 		"menus": {
