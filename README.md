@@ -1,4 +1,4 @@
-# riverpod-clean-architecture README
+# flutter-clean-architecture README
 
 This is the README for your extension "riverpod-clean-architecture". After writing up a brief description, we recommend including the following sections.
 
