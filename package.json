@@ -20,9 +20,16 @@
 				"command": "extension.new-package",
 				"title": "Clean Riverpod: New Package"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.new-package",
+					"when": "explorerResourceIsFolder"
+				}
+			]
+		}
 	},
-
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",

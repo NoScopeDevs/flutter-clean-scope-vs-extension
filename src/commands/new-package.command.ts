@@ -56,6 +56,17 @@ async function generatePackageCode(
   const packageDirectoryPath = `${targetDirectory}/${packageName}`;
   if (!existsSync(packageDirectoryPath)) {
     await createDirectory(packageDirectoryPath);
+    await createDirectory(`${packageDirectoryPath}/src`);
+
+    await createDirectory(`${packageDirectoryPath}/src/data`);
+    await createDirectory(`${packageDirectoryPath}/src/data/models`);
+    await createDirectory(`${packageDirectoryPath}/src/data/repositories`);
+    await createDirectory(`${packageDirectoryPath}/src/data/sources`);
+
+    await createDirectory(`${packageDirectoryPath}/src/domain`);
+    await createDirectory(`${packageDirectoryPath}/src/domain/entities`);
+    await createDirectory(`${packageDirectoryPath}/src/domain/repositories`);
+    await createDirectory(`${packageDirectoryPath}/src/domain/usecases`);
   }
 
   await Promise.all([

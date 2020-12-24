@@ -8,7 +8,7 @@ function getDefultPubspecPackageTemplate(name: string): string {
 //   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `name: ${snakeCaseName}
-description: Dart package which manages number trivia's domain and data.
+description: Dart package
 version: 1.0.0
 
 environment:
