@@ -15,6 +15,11 @@ import {
   createUseCaseTemplate,
   createExampleUseCaseTemplate,
   createDomainTemplate,
+
+  //Data
+  createDataSourceTemplate,
+  createIRepositoryTemplate,
+  createDataTemplate,
 } from "./new-package-file-creation";
 
 export const newPackage = async (uri: Uri) => {
@@ -82,11 +87,13 @@ async function generatePackageCode(
     await createDirectory(packageDirectoryPath);
     await createDirectory(`${packageDirectorySrc}`);
 
+    //Data
     await createDirectory(`${packageDirectoryData}`);
     await createDirectory(`${packageDirectoryDataModels}`);
     await createDirectory(`${packageDirectoryDataRespositories}`);
     await createDirectory(`${packageDirectoryDataSources}`);
 
+    //Domain
     await createDirectory(`${packageDirectoryDomain}`);
     await createDirectory(`${packageDirectoryDomainEntities}`);
     await createDirectory(`${packageDirectoryDomainRepositories}`);
@@ -96,6 +103,11 @@ async function generatePackageCode(
   await Promise.all([
     createPubspecTemplate(packageName, targetDirectory),
     createAnalysisOptionsTemplate(packageName, targetDirectory),
+
+    //Data
+    createDataSourceTemplate(packageName, packageDirectoryDataSources),
+    createIRepositoryTemplate(packageName, packageDirectoryDataRespositories),
+    createDataTemplate(packageName, packageDirectoryData),
 
     //Domain
     createNoParamsEntitiyTemplate(packageName, packageDirectoryDomainEntities),
