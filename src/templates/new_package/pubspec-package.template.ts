@@ -18,8 +18,9 @@ dependencies:
   errors:
     git:
       url: git://github.com/NoScopeDevs/errors
-  network_info:
-    path: ../network_info
+  network_manager:
+    git:
+      url: git://github.com/NoScopeDevs/network_manager
   dartz: ^0.9.2
   dio: ^3.0.10
   equatable: ^1.2.5

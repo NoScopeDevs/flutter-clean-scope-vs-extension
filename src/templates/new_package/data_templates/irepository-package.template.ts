@@ -11,7 +11,7 @@ function getDefaultIRepositoryTemplate(name: string): string {
   return `import 'package:meta/meta.dart';
 import 'package:dartz/dartz.dart';
 import 'package:errors/errors.dart';
-import 'package:network_info/network_info.dart';
+import 'package:network_manager/network_manager.dart';
 
 import 'package:${snakeCaseName}/src/data/datasources/${snakeCaseName}_datasource.dart';
 
@@ -25,13 +25,13 @@ class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
   ///Counter repo constructor
   I${pascalCaseName}Repository({
     @required ${pascalCaseName}DataSource ${camelCaseName}DataSource,
-    @required NetworkInfo networkInfo,
+    @required NetworkManager networkManager,
   })  : assert(${camelCaseName}DataSource != null),
         _${camelCaseName}DataSource = ${camelCaseName}DataSource,
-        _networkInfo = networkInfo;
+        _networkManager = networkManager;
 
   final ${pascalCaseName}DataSource _${camelCaseName}DataSource;
-  final NetworkInfo _networkInfo;
+  final NetworkManager _networkManager;
 
   //TODO: Implement temlate repository
 
@@ -44,7 +44,7 @@ class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
   Future<Either<Failure, int>> _getAddition(
     _ExampleResultFunction ${camelCaseName}UseCase,
   ) async {
-    if (await _networkInfo.isConnected) {
+    if (await _networkManager.isConnected) {
       try {
         final result = await ${camelCaseName}UseCase();
         return Right(result);
