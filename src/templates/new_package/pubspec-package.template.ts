@@ -1,11 +1,11 @@
 import * as changeCase from "change-case";
 
 export function getPubsbecTemplate(name: string): string {
-    return getDefultPubspecTemplate(name);
+  return getDefultPubspecTemplate(name);
 }
 
 function getDefultPubspecTemplate(name: string): string {
-//   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  //   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `name: ${snakeCaseName}
 description: Dart package
@@ -16,7 +16,8 @@ environment:
 
 dependencies:
   errors:
-    path: ../errors
+    git:
+      url: git://github.com/NoScopeDevs/errors
   network_info:
     path: ../network_info
   dartz: ^0.9.2
