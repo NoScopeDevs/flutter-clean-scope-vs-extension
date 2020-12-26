@@ -119,7 +119,7 @@ async function generatePackageCode(
       packageDirectoryDataRespositories,
       isEmptyProject
     ),
-    createDataTemplate(packageName, packageDirectoryData),
+    createDataTemplate(packageName, packageDirectoryData, isEmptyProject),
 
     //Domain
     isEmptyProject
@@ -141,7 +141,7 @@ async function generatePackageCode(
           packageDirectoryDomainUseCases
         ),
 
-    createDomainTemplate(packageName, packageDirectoryDomain),
+    createDomainTemplate(packageName, packageDirectoryDomain, isEmptyProject),
   ]);
 }
 

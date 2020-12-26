@@ -189,7 +189,8 @@ export function createExampleUseCaseTemplate(
 
 export function createDomainTemplate(
   packageName: string,
-  targetDirectory: string
+  targetDirectory: string,
+  isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
   const targetPath = `${targetDirectory}/domain.dart`;
@@ -199,7 +200,7 @@ export function createDomainTemplate(
   return new Promise<void>(async (resolve, reject) => {
     writeFile(
       targetPath,
-      getDomainTemplate(snakeCasePackageName),
+      getDomainTemplate(snakeCasePackageName, isEmptyProject),
       "utf8",
       (error) => {
         if (error) {
@@ -271,7 +272,8 @@ export function createIRepositoryTemplate(
 
 export function createDataTemplate(
   packageName: string,
-  targetDirectory: string
+  targetDirectory: string,
+  isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
   const targetPath = `${targetDirectory}/data.dart`;
@@ -281,7 +283,7 @@ export function createDataTemplate(
   return new Promise<void>(async (resolve, reject) => {
     writeFile(
       targetPath,
-      getDataTemplate(snakeCasePackageName),
+      getDataTemplate(snakeCasePackageName, isEmptyProject),
       "utf8",
       (error) => {
         if (error) {
