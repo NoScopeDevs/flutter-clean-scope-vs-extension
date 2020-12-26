@@ -5,6 +5,7 @@ import { existsSync, lstatSync, writeFile } from "fs";
 import {
   getPubsbecTemplate,
   getAnalysisOptionsTemplate,
+  getPackageExportTemplate,
 
   //Domain
   getNoParamsTemplate,
@@ -57,6 +58,28 @@ export function createAnalysisOptionsTemplate(
   }
   return new Promise<void>(async (resolve, reject) => {
     writeFile(targetPath, getAnalysisOptionsTemplate(), "utf8", (error) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+export function createPackageExportTemplate(
+  packageName: string,
+  targetDirectory: string
+) {
+  const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
+  const targetPath = `${targetDirectory}/${snakeCasePackageName}.dart`;
+  if (existsSync(targetPath)) {
+    throw Error(
+      `${snakeCasePackageName}.dart inside ${snakeCasePackageName} already exists`
+    );
+  }
+  return new Promise<void>(async (resolve, reject) => {
+    writeFile(targetPath, getPackageExportTemplate(), "utf8", (error) => {
       if (error) {
         reject(error);
         return;

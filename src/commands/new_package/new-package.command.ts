@@ -8,6 +8,7 @@ import { existsSync, lstatSync, writeFile } from "fs";
 import {
   createAnalysisOptionsTemplate,
   createPubspecTemplate,
+  createPackageExportTemplate,
 
   //Domain
   createNoParamsEntitiyTemplate,
@@ -103,6 +104,7 @@ async function generatePackageCode(
   await Promise.all([
     createPubspecTemplate(packageName, targetDirectory),
     createAnalysisOptionsTemplate(packageName, targetDirectory),
+    createPackageExportTemplate(packageName, packageDirectoryPath),
 
     //Data
     createDataSourceTemplate(packageName, packageDirectoryDataSources),
