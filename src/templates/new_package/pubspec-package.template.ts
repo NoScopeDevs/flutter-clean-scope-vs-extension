@@ -12,7 +12,7 @@ description: Dart package
 version: 1.0.0
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 dependencies:
   errors:
