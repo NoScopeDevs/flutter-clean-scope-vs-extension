@@ -21,18 +21,27 @@
     "Other"
   ],
   "activationEvents": [
+    "onCommand:extension.new-package-empty",
     "onCommand:extension.new-package"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
+        "command": "extension.new-package-empty",
+        "title": "Clean Scope: New Package Empty"
+      },
+      {
         "command": "extension.new-package",
-        "title": "Clean Scope: New Package"
+        "title": "Clean Scope: New Package Example"
       }
     ],
     "menus": {
       "explorer/context": [
+        {
+          "command": "extension.new-package-empty",
+          "when": "explorerResourceIsFolder"
+        },
         {
           "command": "extension.new-package",
           "when": "explorerResourceIsFolder"

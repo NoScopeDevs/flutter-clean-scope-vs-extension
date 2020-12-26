@@ -23,7 +23,9 @@ import {
   createDataTemplate,
 } from "./new-package-file-creation";
 
-export const newPackage = async (uri: Uri) => {
+export const newPackageEmpty = async (uri: Uri) => newPackage(uri, true);
+
+export const newPackage = async (uri: Uri, isEmptyProject: boolean) => {
   const packageName = await promptForPackageName();
   if (_.isNil(packageName) || packageName.trim() === "") {
     window.showErrorMessage("The package name must not be empty");
@@ -45,7 +47,7 @@ export const newPackage = async (uri: Uri) => {
     packageName.toLowerCase()
   );
   try {
-    await generatePackageCode(packageName, targetDirectory);
+    await generatePackageCode(packageName, targetDirectory, isEmptyProject);
     window.showInformationMessage(
       `Successfully Generated ${pascalCasePackageName} Package`
     );
@@ -67,7 +69,8 @@ function promptForPackageName(): Thenable<string | undefined> {
 
 async function generatePackageCode(
   packageName: string,
-  targetDirectory: string
+  targetDirectory: string,
+  isEmptyProject: boolean
 ) {
   const packageDirectoryPath = `${targetDirectory}/${packageName}/lib`;
   const packageDirectorySrc = `${packageDirectoryPath}/src`;
@@ -107,15 +110,29 @@ async function generatePackageCode(
     createPackageExportTemplate(packageName, packageDirectoryPath),
 
     //Data
-    createDataSourceTemplate(packageName, packageDirectoryDataSources),
+
+    isEmptyProject
+      ? null
+      : createDataSourceTemplate(packageName, packageDirectoryDataSources),
     createIRepositoryTemplate(packageName, packageDirectoryDataRespositories),
     createDataTemplate(packageName, packageDirectoryData),
 
     //Domain
-    createNoParamsEntitiyTemplate(packageName, packageDirectoryDomainEntities),
+    isEmptyProject
+      ? null
+      : createNoParamsEntitiyTemplate(
+          packageName,
+          packageDirectoryDomainEntities
+        ),
     createRepositoryTemplate(packageName, packageDirectoryDomainRepositories),
     createUseCaseTemplate(packageName, packageDirectoryDomainUseCases),
-    createExampleUseCaseTemplate(packageName, packageDirectoryDomainUseCases),
+    isEmptyProject
+      ? null
+      : createExampleUseCaseTemplate(
+          packageName,
+          packageDirectoryDomainUseCases
+        ),
+
     createDomainTemplate(packageName, packageDirectoryDomain),
   ]);
 }
