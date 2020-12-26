@@ -1,2 +1,2 @@
-export * from "./pubspec-package.template"
-export * from "./analysis-package.template"
+export * from "./new_package/pubspec-package.template"
+export * from "./new_package/analysis-package.template"
