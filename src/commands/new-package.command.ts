@@ -54,7 +54,7 @@ async function generatePackageCode(
   packageName: string,
   targetDirectory: string,
 ) {
-  const packageDirectoryPath = `${targetDirectory}/${packageName}`;
+  const packageDirectoryPath = `${targetDirectory}/${packageName}/lib`;
   if (!existsSync(packageDirectoryPath)) {
     await createDirectory(packageDirectoryPath);
     await createDirectory(`${packageDirectoryPath}/src`);

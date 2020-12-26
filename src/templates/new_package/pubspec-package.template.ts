@@ -19,12 +19,11 @@ dependencies:
     path: ../errors
   network_info:
     path: ../network_info
-
   dartz: ^0.9.2
-  equatable: ^1.2.0
+  dio: ^3.0.10
+  equatable: ^1.2.5
   hive: ^1.4.4+1
-  http: ^0.12.2
-  meta: ^1.1.8
-  very_good_analysis: ^1.0.3
+  meta: ^1.2.4
+  very_good_analysis: ^1.0.4
     `;
 }
