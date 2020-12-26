@@ -1,10 +1,15 @@
 import * as changeCase from "change-case";
 
-export function getIRepositoryTemplate(name: string): string {
-  return getDefaultIRepositoryTemplate(name);
+export function getIRepositoryTemplate(
+  name: string,
+  isEmptyProject: boolean
+): string {
+  return isEmptyProject
+    ? getBaseIRepositoryTemplate(name)
+    : getExampleIRepositoryTemplate(name);
 }
 
-function getDefaultIRepositoryTemplate(name: string): string {
+function getExampleIRepositoryTemplate(name: string): string {
   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const camelCaseName = changeCase.camelCase(name.toLowerCase());
@@ -33,7 +38,7 @@ class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
   final ${pascalCaseName}DataSource _${camelCaseName}DataSource;
   final NetworkManager _networkManager;
 
-  //TODO: Implement temlate repository
+  //TODO: Implement ${pascalCaseName} repository
 
   //*Example:
   @override
@@ -60,4 +65,24 @@ class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
 }
 
 `;
+}
+function getBaseIRepositoryTemplate(name: string): string {
+  const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
+  return `import 'package:meta/meta.dart';
+import 'package:dartz/dartz.dart';
+import 'package:errors/errors.dart';
+import 'package:network_manager/network_manager.dart';
+
+//Domain
+import 'package:${snakeCaseName}/src/domain/repositories/${snakeCaseName}_repository.dart';
+
+
+///Cunter repo implementation
+class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
+  ///Counter repo constructor
+  I${pascalCaseName}Repository();
+
+  //TODO: Implement ${pascalCaseName} repository
+}`;
 }

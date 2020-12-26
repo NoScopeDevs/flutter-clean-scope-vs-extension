@@ -25,7 +25,7 @@ import {
 
 export const newPackageEmpty = async (uri: Uri) => newPackage(uri, true);
 
-export const newPackage = async (uri: Uri, isEmptyProject: boolean) => {
+export const newPackage = async (uri: Uri, isEmptyProject = false) => {
   const packageName = await promptForPackageName();
   if (_.isNil(packageName) || packageName.trim() === "") {
     window.showErrorMessage("The package name must not be empty");
@@ -114,7 +114,11 @@ async function generatePackageCode(
     isEmptyProject
       ? null
       : createDataSourceTemplate(packageName, packageDirectoryDataSources),
-    createIRepositoryTemplate(packageName, packageDirectoryDataRespositories),
+    createIRepositoryTemplate(
+      packageName,
+      packageDirectoryDataRespositories,
+      isEmptyProject
+    ),
     createDataTemplate(packageName, packageDirectoryData),
 
     //Domain
@@ -124,7 +128,11 @@ async function generatePackageCode(
           packageName,
           packageDirectoryDomainEntities
         ),
-    createRepositoryTemplate(packageName, packageDirectoryDomainRepositories),
+    createRepositoryTemplate(
+      packageName,
+      packageDirectoryDomainRepositories,
+      isEmptyProject
+    ),
     createUseCaseTemplate(packageName, packageDirectoryDomainUseCases),
     isEmptyProject
       ? null

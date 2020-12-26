@@ -1,6 +1,7 @@
 import * as changeCase from "change-case";
 
 import { existsSync, lstatSync, writeFile } from "fs";
+import { isEmpty } from "lodash";
 
 import {
   getPubsbecTemplate,
@@ -113,7 +114,8 @@ export function createNoParamsEntitiyTemplate(
 
 export function createRepositoryTemplate(
   packageName: string,
-  targetDirectory: string
+  targetDirectory: string,
+  isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
   const targetPath = `${targetDirectory}/${snakeCasePackageName}_repository.dart`;
@@ -125,7 +127,7 @@ export function createRepositoryTemplate(
   return new Promise<void>(async (resolve, reject) => {
     writeFile(
       targetPath,
-      getRepositoryTemplate(snakeCasePackageName),
+      getRepositoryTemplate(snakeCasePackageName, isEmptyProject),
       "utf8",
       (error) => {
         if (error) {
@@ -241,7 +243,8 @@ export function createDataSourceTemplate(
 
 export function createIRepositoryTemplate(
   packageName: string,
-  targetDirectory: string
+  targetDirectory: string,
+  isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
   const targetPath = `${targetDirectory}/i${snakeCasePackageName}_repository.dart`;
@@ -253,7 +256,7 @@ export function createIRepositoryTemplate(
   return new Promise<void>(async (resolve, reject) => {
     writeFile(
       targetPath,
-      getIRepositoryTemplate(snakeCasePackageName),
+      getIRepositoryTemplate(snakeCasePackageName, isEmptyProject),
       "utf8",
       (error) => {
         if (error) {
