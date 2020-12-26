@@ -1,1 +1,1 @@
-export * from "./new-package.command";
+export * from "./new_package/new-package.command";
