@@ -5,8 +5,8 @@ export function getDomainTemplate(
   isEmptyProject: boolean
 ): string {
   return isEmptyProject
-    ? getExampleDomainTemplate(name)
-    : getBaseDomainTemplate(name);
+    ? getBaseDomainTemplate(name)
+    : getExampleDomainTemplate(name);
 }
 
 function getBaseDomainTemplate(name: string): string {
@@ -14,13 +14,13 @@ function getBaseDomainTemplate(name: string): string {
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `// Entities
 //TODO: export entities
-// export 'usecases/your_entity.dart';
+// export 'entities/your_entity.dart';
 
 // Export Repositories
 export 'repositories/${snakeCaseName}_repository.dart';
 
 // Export Use Cases
-export 'usecases/example_addition.dart';
+//export 'usecases/your_usecase.dart';
 `;
 }
 
@@ -29,13 +29,13 @@ function getExampleDomainTemplate(name: string): string {
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `// Entities
 //TODO: export entities
-// export 'usecases/your_entity.dart';
+// export 'entities/your_entity.dart';
 
 // Export Repositories
 export 'repositories/${snakeCaseName}_repository.dart';
 
 // Export Use Cases
 //TODO: export usecases
-//export 'usecases/your_usecase.dart';
+export 'usecases/example_addition.dart';
 `;
 }

@@ -23,7 +23,7 @@ abstract class ${pascalCaseName}Repository {
 
   //*Example:
   ///Example of abstract function
-  Future<Either<Failure, int>> exampleFunctionAddition();
+  Future<Either<Failure, int>> exampleFunctionAddition(int currentNumber);
 }
 
     `;

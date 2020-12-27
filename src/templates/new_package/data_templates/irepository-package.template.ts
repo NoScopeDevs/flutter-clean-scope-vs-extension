@@ -42,8 +42,8 @@ class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
 
   //*Example:
   @override
-  Future<Either<Failure, int>> exampleFunctionAddition() {
-    return _getAddition(_${camelCaseName}DataSource.exampleAddition);
+  Future<Either<Failure, int>> exampleFunctionAddition(int currentNumber) {
+    return _getAddition(() => _${camelCaseName}DataSource.exampleAddition(currentNumber));
   }
 
   Future<Either<Failure, int>> _getAddition(

@@ -23,9 +23,14 @@ import {
   createDataTemplate,
 } from "./new-package-file-creation";
 
-export const newPackageEmpty = async (uri: Uri) => newPackage(uri, true);
+export const newPackageEmpty = async (uri: Uri) => _newPackage(uri, true);
 
-export const newPackage = async (uri: Uri, isEmptyProject = false) => {
+export const newPackageExample = async (uri: Uri) => _newPackage(uri, false);
+
+export const _newPackage = async (
+  uri: Uri,
+  isEmptyProject: boolean = false
+) => {
   const packageName = await promptForPackageName();
   if (_.isNil(packageName) || packageName.trim() === "") {
     window.showErrorMessage("The package name must not be empty");
@@ -122,12 +127,12 @@ async function generatePackageCode(
     createDataTemplate(packageName, packageDirectoryData, isEmptyProject),
 
     //Domain
-    isEmptyProject
-      ? null
-      : createNoParamsEntitiyTemplate(
-          packageName,
-          packageDirectoryDomainEntities
-        ),
+    // isEmptyProject
+    //   ? null
+    //   : createNoParamsEntitiyTemplate(
+    //       packageName,
+    //       packageDirectoryDomainEntities
+    //     ),
     createRepositoryTemplate(
       packageName,
       packageDirectoryDomainRepositories,

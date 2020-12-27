@@ -16,7 +16,7 @@ abstract class ${pascalCaseName}DataSource {
 
   //*Example
   ///Make example addition
-  Future<int> exampleAddition();
+  Future<int> exampleAddition(int currentNumber);
 }
 
 /// ${pascalCaseName} data source implementation
@@ -28,8 +28,8 @@ class I${pascalCaseName}DataSource implements ${pascalCaseName}DataSource {
   //* Example
   ///Example implementation of addition with API
   @override
-  Future<int> exampleAddition() async {
-    return await _incrementCounterFromApi('1 + 1');
+  Future<int> exampleAddition(int currentNumber) async {
+    return await _incrementCounterFromApi('$currentNumber + 1');
   }
 
   Future<int> _incrementCounterFromApi(String operation) async {
@@ -43,7 +43,7 @@ class I${pascalCaseName}DataSource implements ${pascalCaseName}DataSource {
 
     if (response.statusCode == 200) {
       final result = response.data['result'];
-      return result;
+      return int.parse(result);
     } else {
       throw ServerException();
     }

@@ -32,13 +32,12 @@ function getDefultExampleUseCaseTemplate(name: string): string {
 import 'package:dartz/dartz.dart';
 import 'package:errors/errors.dart';
 
-import '../entities/no_params.dart';
 import '../repositories/${snakeCaseName}_repository.dart';
 
 import 'usecase.dart';
 
 ///Increment Counter usecase
-class ExampleAddition implements UseCase<int, NoParams> {
+class ExampleAddition implements UseCase<int, int> {
   /// Example Addition constructor
   ExampleAddition({
     @required ${pascalCaseName}Repository ${cammelCase}Repo,
@@ -48,8 +47,8 @@ class ExampleAddition implements UseCase<int, NoParams> {
   final ${pascalCaseName}Repository _${cammelCase}Repo;
 
   @override
-  Future<Either<Failure, int>> call(NoParams params) async {
-    return await _${cammelCase}Repo.exampleFunctionAddition();
+  Future<Either<Failure, int>> call(int currentNumber) async {
+    return await _${cammelCase}Repo.exampleFunctionAddition(currentNumber);
   }
 }
 `;
