@@ -27,7 +27,7 @@ export const newPackageEmpty = async (uri: Uri) => _newPackage(uri, true);
 
 export const newPackageExample = async (uri: Uri) => _newPackage(uri, false);
 
-export const _newPackage = async (
+const _newPackage = async (
   uri: Uri,
   isEmptyProject: boolean = false
 ) => {

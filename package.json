@@ -22,7 +22,8 @@
   ],
   "activationEvents": [
     "onCommand:extension.new-package-empty",
-    "onCommand:extension.new-package-example"
+    "onCommand:extension.new-feature-empty",
+    "onCommand:extension.new-feature-example"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -34,6 +35,14 @@
       {
         "command": "extension.new-package-example",
         "title": "Clean Scope: New Package Example"
+      },
+      {
+        "command": "extension.new-feature-empty",
+        "title": "Clean Scope: New Feature Empty"
+      },
+      {
+        "command": "extension.new-feature-example",
+        "title": "Clean Scope: New Feature Example"
       }
     ],
     "menus": {
@@ -44,6 +53,14 @@
         },
         {
           "command": "extension.new-package-example",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-feature-empty",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.new-feature-example",
           "when": "explorerResourceIsFolder"
         }
       ]
