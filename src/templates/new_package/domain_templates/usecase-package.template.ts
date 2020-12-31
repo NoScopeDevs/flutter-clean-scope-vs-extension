@@ -32,7 +32,7 @@ function getDefultExampleUseCaseTemplate(name: string): string {
 import 'package:dartz/dartz.dart';
 import 'package:errors/errors.dart';
 
-import '../repositories/${snakeCaseName}_repository.dart';
+import '../repositories/i${snakeCaseName}_repository.dart';
 
 import 'usecase.dart';
 
@@ -40,11 +40,11 @@ import 'usecase.dart';
 class ExampleAddition implements UseCase<int, int> {
   /// Example Addition constructor
   ExampleAddition({
-    @required ${pascalCaseName}Repository ${cammelCase}Repo,
+    @required I${pascalCaseName}Repository ${cammelCase}Repo,
   })  : assert(${cammelCase}Repo != null),
         _${cammelCase}Repo = ${cammelCase}Repo;
 
-  final ${pascalCaseName}Repository _${cammelCase}Repo;
+  final I${pascalCaseName}Repository _${cammelCase}Repo;
 
   @override
   Future<Either<Failure, int>> call(int currentNumber) async {

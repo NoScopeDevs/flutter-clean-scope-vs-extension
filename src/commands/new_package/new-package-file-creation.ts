@@ -112,16 +112,16 @@ export function createNoParamsEntitiyTemplate(
   });
 }
 
-export function createRepositoryTemplate(
+export function createIRepositoryTemplate(
   packageName: string,
   targetDirectory: string,
   isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
-  const targetPath = `${targetDirectory}/${snakeCasePackageName}_repository.dart`;
+  const targetPath = `${targetDirectory}/i${snakeCasePackageName}_repository.dart`;
   if (existsSync(targetPath)) {
     throw Error(
-      `${snakeCasePackageName}_repository.dart inside ${snakeCasePackageName} already exists`
+      `i${snakeCasePackageName}_repository.dart inside ${snakeCasePackageName} already exists`
     );
   }
   return new Promise<void>(async (resolve, reject) => {
@@ -242,16 +242,16 @@ export function createDataSourceTemplate(
   });
 }
 
-export function createIRepositoryTemplate(
+export function createRepositoryTemplate(
   packageName: string,
   targetDirectory: string,
   isEmptyProject: boolean
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
-  const targetPath = `${targetDirectory}/i${snakeCasePackageName}_repository.dart`;
+  const targetPath = `${targetDirectory}/${snakeCasePackageName}_repository.dart`;
   if (existsSync(targetPath)) {
     throw Error(
-      `i${snakeCasePackageName}_repository.dart inside ${snakeCasePackageName} already exists`
+      `${snakeCasePackageName}_repository.dart inside ${snakeCasePackageName} already exists`
     );
   }
   return new Promise<void>(async (resolve, reject) => {

@@ -12,14 +12,14 @@ import {
 
   //Domain
   createNoParamsEntitiyTemplate,
-  createRepositoryTemplate,
+  createIRepositoryTemplate,
   createUseCaseTemplate,
   createExampleUseCaseTemplate,
   createDomainTemplate,
 
   //Data
   createDataSourceTemplate,
-  createIRepositoryTemplate,
+  createRepositoryTemplate,
   createDataTemplate,
 } from "./new-package-file-creation";
 
@@ -115,15 +115,15 @@ async function generatePackageCode(
     createPackageExportTemplate(packageName, packageDirectoryPath),
 
     //Data
-
-    isEmptyProject
-      ? null
-      : createDataSourceTemplate(packageName, packageDirectoryDataSources),
-    createIRepositoryTemplate(
+createRepositoryTemplate(
       packageName,
       packageDirectoryDataRespositories,
       isEmptyProject
     ),
+    isEmptyProject
+      ? null
+      : createDataSourceTemplate(packageName, packageDirectoryDataSources),
+    
     createDataTemplate(packageName, packageDirectoryData, isEmptyProject),
 
     //Domain
@@ -133,11 +133,13 @@ async function generatePackageCode(
     //       packageName,
     //       packageDirectoryDomainEntities
     //     ),
-    createRepositoryTemplate(
+
+    createIRepositoryTemplate(
       packageName,
       packageDirectoryDomainRepositories,
       isEmptyProject
     ),
+    
     createUseCaseTemplate(packageName, packageDirectoryDomainUseCases),
     isEmptyProject
       ? null

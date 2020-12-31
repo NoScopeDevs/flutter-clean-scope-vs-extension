@@ -15,7 +15,7 @@ function getExampleDataTemplate(name: string): string {
 export 'datasources/${snakeCaseName}_datasource.dart';
 
 // Export Repositories Implementation
-export 'repositories/i${snakeCaseName}_repository.dart';
+export 'repositories/${snakeCaseName}_repository.dart';
 
 `;
 }
@@ -30,7 +30,7 @@ function getBaseDataTemplate(name: string): string {
 //TODO: export datasources
 
 // Export Repositories Implementation
-export 'repositories/i${snakeCaseName}_repository.dart';
+export 'repositories/${snakeCaseName}_repository.dart';
 
 `;
 }

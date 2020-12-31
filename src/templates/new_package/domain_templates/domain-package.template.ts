@@ -17,7 +17,7 @@ function getBaseDomainTemplate(name: string): string {
 // export 'entities/your_entity.dart';
 
 // Export Repositories
-export 'repositories/${snakeCaseName}_repository.dart';
+export 'repositories/i${snakeCaseName}_repository.dart';
 
 // Export Use Cases
 //export 'usecases/your_usecase.dart';
@@ -32,7 +32,7 @@ function getExampleDomainTemplate(name: string): string {
 // export 'entities/your_entity.dart';
 
 // Export Repositories
-export 'repositories/${snakeCaseName}_repository.dart';
+export 'repositories/i${snakeCaseName}_repository.dart';
 
 // Export Use Cases
 //TODO: export usecases

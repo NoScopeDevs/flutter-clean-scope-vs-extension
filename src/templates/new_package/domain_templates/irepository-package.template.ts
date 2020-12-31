@@ -18,7 +18,7 @@ import 'package:dartz/dartz.dart';
 
 /// Repository interface for ${name}
 @immutable
-abstract class ${pascalCaseName}Repository {
+abstract class I${pascalCaseName}Repository {
   //TODO: Implement Interface
 
   //*Example:
@@ -38,7 +38,7 @@ import 'package:dartz/dartz.dart';
 
 /// Repository interface for ${name}
 @immutable
-abstract class ${pascalCaseName}Repository {
+abstract class I${pascalCaseName}Repository {
   //TODO: Implement Interface
 }
 

@@ -21,14 +21,14 @@ import 'package:network_manager/network_manager.dart';
 import 'package:${snakeCaseName}/src/data/datasources/${snakeCaseName}_datasource.dart';
 
 //Domain
-import 'package:${snakeCaseName}/src/domain/repositories/${snakeCaseName}_repository.dart';
+import 'package:${snakeCaseName}/src/domain/repositories/i${snakeCaseName}_repository.dart';
 
 typedef _ExampleResultFunction = Future<int> Function();
 
 ///Cunter repo implementation
-class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
+class ${pascalCaseName}Repository implements I${pascalCaseName}Repository {
   ///Counter repo constructor
-  I${pascalCaseName}Repository({
+  ${pascalCaseName}Repository({
     @required ${pascalCaseName}DataSource ${camelCaseName}DataSource,
     @required NetworkManager networkManager,
   })  : assert(${camelCaseName}DataSource != null),
@@ -75,13 +75,13 @@ import 'package:errors/errors.dart';
 import 'package:network_manager/network_manager.dart';
 
 //Domain
-import 'package:${snakeCaseName}/src/domain/repositories/${snakeCaseName}_repository.dart';
+import 'package:${snakeCaseName}/src/domain/repositories/i${snakeCaseName}_repository.dart';
 
 
 ///Cunter repo implementation
-class I${pascalCaseName}Repository implements ${pascalCaseName}Repository {
+class ${pascalCaseName}Repository implements I${pascalCaseName}Repository {
   ///Counter repo constructor
-  I${pascalCaseName}Repository();
+  ${pascalCaseName}Repository();
 
   //TODO: Implement ${pascalCaseName} repository
 }`;
