@@ -80,7 +80,7 @@ export function createPackageExportTemplate(
     );
   }
   return new Promise<void>(async (resolve, reject) => {
-    writeFile(targetPath, getPackageExportTemplate(), "utf8", (error) => {
+    writeFile(targetPath, getPackageExportTemplate(snakeCasePackageName), "utf8", (error) => {
       if (error) {
         reject(error);
         return;
@@ -150,7 +150,7 @@ export function createUseCaseTemplate(
     throw Error(`usecase.dart inside ${snakeCasePackageName} already exists`);
   }
   return new Promise<void>(async (resolve, reject) => {
-    writeFile(targetPath, getUseCaseTemplate(), "utf8", (error) => {
+    writeFile(targetPath, getUseCaseTemplate(snakeCasePackageName), "utf8", (error) => {
       if (error) {
         reject(error);
         return;

@@ -1,9 +1,14 @@
-export function getPackageExportTemplate(): string {
-  return getDefaultPackageExportTemplate();
+import * as changeCase from "change-case";
+
+export function getPackageExportTemplate(name: string): string {
+  return getDefaultPackageExportTemplate(name);
 }
 
-function getDefaultPackageExportTemplate(): string {
-  return `export 'src/data/data.dart';
+function getDefaultPackageExportTemplate(name: string): string {
+  const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
+  return `library ${snakeCaseName};
+  
+export 'src/data/data.dart';
 export 'src/domain/domain.dart';
 `;
 }

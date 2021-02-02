@@ -32,15 +32,8 @@ abstract class I${pascalCaseName}Repository {
 function getBaseRepositoryTemplate(name: string): string {
   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   //   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
-  return `import 'package:errors/errors.dart';
-import 'package:meta/meta.dart';
-import 'package:dartz/dartz.dart';
-
-/// Repository interface for ${name}
-@immutable
-abstract class I${pascalCaseName}Repository {
-  //TODO: Implement Interface
-}
-
-    `;
+  return `/// Repository interface for ${name}
+  abstract class I${pascalCaseName}Repository {
+    // TODO: Define interface methods
+  }`;
 }

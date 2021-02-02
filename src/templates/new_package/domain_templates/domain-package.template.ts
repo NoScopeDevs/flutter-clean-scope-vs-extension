@@ -12,16 +12,14 @@ export function getDomainTemplate(
 function getBaseDomainTemplate(name: string): string {
   //   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
-  return `// Entities
-//TODO: export entities
-// export 'entities/your_entity.dart';
+  return `// Export Entities
+// TODO: Export entities
 
 // Export Repositories
 export 'repositories/i${snakeCaseName}_repository.dart';
 
 // Export Use Cases
-//export 'usecases/your_usecase.dart';
-`;
+// TODO: Export use cases`;
 }
 
 function getExampleDomainTemplate(name: string): string {

@@ -1,30 +1,36 @@
 import * as changeCase from "change-case";
 
-export function getUseCaseTemplate(): string {
-    return getDefultUseCaseTemplate();
+export function getUseCaseTemplate(name: string): string {
+    return getDefaultUseCaseTemplate(name);
 }
 
 export function getExampleUseCaseTemplate(name: string): string {
-    return getDefultExampleUseCaseTemplate(name);
+    return getDefaultExampleUseCaseTemplate(name);
 }
 
-function getDefultUseCaseTemplate(): string {
-//   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
-//   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
+function getDefaultUseCaseTemplate(name: string): string {
+  const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `import 'package:dartz/dartz.dart';
 import 'package:errors/errors.dart';
+import 'package:meta/meta.dart';
 
-/// Interface for usecases
-abstract class UseCase<Type, UseCaseParam> {
-  //TODO: Change UseCase Type
-  /// method call on class creation
-  Future<Either<Failure, Type>> call(UseCaseParam params);
+import '../repositories/i${snakeCaseName}_repository.dart';
+
+class UseCase {
+  UseCase({@required this.repository}) : assert(repository != null);
+
+  final I${pascalCaseName}Repository repository;
+
+  /// Callable class method
+  Future<Either<Failure, Object>> call() async {
+    /// TODO: Call specific repository method
+  }
+}`;
 }
- `;
-}
 
 
-function getDefultExampleUseCaseTemplate(name: string): string {
+function getDefaultExampleUseCaseTemplate(name: string): string {
   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const cammelCase = changeCase.camelCase(name.toLowerCase());
