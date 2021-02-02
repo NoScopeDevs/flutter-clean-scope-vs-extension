@@ -11,24 +11,24 @@ export function getStateTemplate(
 }
 
 function getBaseStateTemplate(name: string): string {
-    const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
-  return `part of '${snakeCaseName}_state_notifier.dart';
 
-abstract class ${pascalCaseName}State extends Equatable {
-  ${pascalCaseName}State();
-}
+  return `import 'package:freezed_annotation/freezed_annotation.dart';
 
-class ${pascalCaseName}Initial extends ${pascalCaseName}State{
-  @override
-  List<Object> get props => throw UnimplementedError();
-}
+part '${snakeCaseName}_state.freezed.dart';
 
-//TODO: Implement states for ${pascalCaseName}State
+@freezed
+abstract class ${pascalCaseName}State with _$${pascalCaseName}State {
+  /// Data is present state, also default case
+  const factory ${pascalCaseName}State() = Data;
 
+  /// Data is loading state
+  const factory ${pascalCaseName}State.loading() = Loading;
 
-
-`;
+  /// Error when loading data state
+  const factory ${pascalCaseName}State.error([String message]) = Error;
+}`;
 }
 /*
 function getExampleStateTemplate(name: string): string {
