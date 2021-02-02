@@ -1,0 +1,81 @@
+{
+	"Flutter Screen": {
+		"prefix": "fl-page",
+		"body": [
+			"import 'package:flutter/material.dart';",
+			"",
+			"/// TODO: Finish the docs",
+			"/// ${1:name}Page to...",
+			"class ${1:name}Page extends StatelessWidget {",
+			"",
+			"/// Static named route for page",
+			"static const String route = '${1:name}';",
+			"",
+			"/// Static method to return the widget as a PageRoute",
+			"static Route go() => MaterialPageRoute<void>(builder: (_) => ${1:name}Page());",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return const Scaffold(",
+			"      body: Center(",
+			"        child: Text('This is ${1:name}Page'),",
+			"     ),",
+			"   );",
+			"  }",
+			"}"
+		],
+		"description": "Flutter page snippet"
+	},
+	"Test structure": {
+		"prefix": "fl-test",
+		"body": [
+			"test('${1:description}',",
+			" () {",
+			"   // setup -> create the object to test",
+			" ",
+			"   // side effects -> collect the result to test",
+			" ",
+			"   // expectations -> compare result to expected value",
+			" ",
+			"   // verifications -> verify other actions that should(n't) happen",
+			" },",
+			");"
+		],
+		"description": "Dart/Flutter test snippet"
+	},
+	"i18n extension class": {
+		"prefix": "i18n-class",
+		"body": [
+			"import 'package:i18n_extension/i18n_extension.dart';",
+			"",
+			"/// TODO: Place your english string constants here",
+			"const kLoginSampleMessage = 'Login sample';",
+			"",
+			"/// This extension method contains all",
+			"/// the strings for the ${1:name} view",
+			"extension ${1:name}Strings on String {",
+			"\tstatic final _t = Translations('en_us') +",
+			"\t{",
+			"\t\t'en_us': kLoginSampleMessage,",
+			"\t\t'es_es': '${1:name} ejemplo',",
+			"\t};",
+			"",
+			"/// Getter to translate the string",
+			"String get i18n => localize(this, _t);",
+			"",
+			"\t/// Method for interpolating strings",
+			"\tString fill(List<Object> params) => localizeFill(this, params);",
+			"",
+			"\t/// Method for pluralizing strings",
+			"\tString plural(int value) => localizePlural(value, this, _t);",
+			"",
+			"\t/// Method for creating custom modifiers according to any conditions",
+			"\tString version(Object modifier) => localizeVersion(modifier, this, _t);",
+			"",
+			"\t/// Method for retrieving all the custom modifiers",
+			"\tMap<String, String> allVersions() => localizeAllVersions(this, _t);",
+			"}"
+		],
+		"description": "i18n extension file template"
+	}
+}

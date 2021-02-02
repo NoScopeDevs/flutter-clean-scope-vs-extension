@@ -2,7 +2,7 @@
   "name": "flutter-clean-scope",
   "displayName": "Flutter Clean Scope",
   "description": "An extension that will let you create a flutter project with a clean architecture setup",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "NoScopeDevs",
   "repository": {
     "type": "git",
@@ -14,11 +14,13 @@
     "cleanarchitecture",
     "riverpod"
   ],
+  "icon": "assets/logo.png",
   "engines": {
     "vscode": "^1.52.0"
   },
   "categories": [
-    "Other"
+    "Snippets",
+    "Programming Languages"
   ],
   "activationEvents": [
     "onCommand:extension.new-package-empty",
@@ -48,7 +50,13 @@
           "when": "explorerResourceIsFolder"
         }
       ]
-    }
+    },
+    "snippets": [
+      {
+        "language": "dart",
+        "path": "./snippets/test.json"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
