@@ -249,7 +249,7 @@ export function createRemoteDataSourceTemplate(
   targetDirectory: string
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
-  const targetPath = `${targetDirectory}/remote_datasource.dart`;
+  const targetPath = `${targetDirectory}/remote_data_source.dart`;
   if (existsSync(targetPath)) {
     throw Error(
       `${snakeCasePackageName}_datasource.dart inside ${snakeCasePackageName} already exists`
@@ -276,7 +276,7 @@ export function createLocalDataSourceTemplate(
   targetDirectory: string
 ) {
   const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
-  const targetPath = `${targetDirectory}/local_datasource.dart`;
+  const targetPath = `${targetDirectory}/local_data_source.dart`;
   if (existsSync(targetPath)) {
     throw Error(
       `${snakeCasePackageName}_datasource.dart inside ${snakeCasePackageName} already exists`
