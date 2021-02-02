@@ -2,7 +2,7 @@
   "name": "flutter-clean-scope",
   "displayName": "Flutter Clean Scope",
   "description": "An extension that will let you create a flutter project with a clean architecture setup",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "NoScopeDevs",
   "repository": {
     "type": "git",
