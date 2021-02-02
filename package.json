@@ -30,19 +30,11 @@
     "commands": [
       {
         "command": "extension.new-package-empty",
-        "title": "Clean Scope: New Package Empty"
-      },
-      {
-        "command": "extension.new-package-example",
-        "title": "Clean Scope: New Package Example"
+        "title": "Clean Scope: New Package"
       },
       {
         "command": "extension.new-feature-empty",
-        "title": "Clean Scope: New Feature Empty"
-      },
-      {
-        "command": "extension.new-feature-example",
-        "title": "Clean Scope: New Feature Example"
+        "title": "Clean Scope: New Feature"
       }
     ],
     "menus": {
@@ -52,15 +44,7 @@
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "extension.new-package-example",
-          "when": "explorerResourceIsFolder"
-        },
-        {
           "command": "extension.new-feature-empty",
-          "when": "explorerResourceIsFolder"
-        },
-        {
-          "command": "extension.new-feature-example",
           "when": "explorerResourceIsFolder"
         }
       ]
