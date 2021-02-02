@@ -21,6 +21,8 @@ import {
   createDataSourceTemplate,
   createRepositoryTemplate,
   createDataTemplate,
+  createRemoteDataSourceTemplate,
+  createLocalDataSourceTemplate,
 } from "./new-package-file-creation";
 
 export const newPackageEmpty = async (uri: Uri) => _newPackage(uri, true);
@@ -123,6 +125,9 @@ createRepositoryTemplate(
     isEmptyProject
       ? null
       : createDataSourceTemplate(packageName, packageDirectoryDataSources),
+    
+    isEmptyProject ?  createRemoteDataSourceTemplate(packageName, packageDirectoryDataSources): null,
+    isEmptyProject ?  createLocalDataSourceTemplate(packageName, packageDirectoryDataSources): null,
     
     createDataTemplate(packageName, packageDirectoryData, isEmptyProject),
 

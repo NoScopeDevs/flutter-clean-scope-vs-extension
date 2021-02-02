@@ -23,14 +23,12 @@ export 'repositories/${snakeCaseName}_repository.dart';
 function getBaseDataTemplate(name: string): string {
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `// Export Models
-//TODO: export models
-//export 'datasources/your_${snakeCaseName}_datasource.dart';
+// TODO: Export models
 
 // Export Data Sources
-//TODO: export datasources
+export 'datasources/local_data_source.dart';
+export 'datasources/remote_data_source.dart';
 
-// Export Repositories Implementation
-export 'repositories/${snakeCaseName}_repository.dart';
-
-`;
+// Export Repositories Implementations
+export 'repositories/room_repository.dart';`;
 }

@@ -70,19 +70,24 @@ function getBaseIRepositoryTemplate(name: string): string {
   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   return `import 'package:meta/meta.dart';
-import 'package:dartz/dartz.dart';
-import 'package:errors/errors.dart';
-import 'package:network_manager/network_manager.dart';
 
-//Domain
-import 'package:${snakeCaseName}/src/domain/repositories/i${snakeCaseName}_repository.dart';
+import '../../domain/domain.dart';
 
+import '../datasources/local_data_source.dart';
+import '../datasources/remote_data_source.dart';
 
-///Cunter repo implementation
+/// ${pascalCaseName} repository implementation
 class ${pascalCaseName}Repository implements I${pascalCaseName}Repository {
-  ///Counter repo constructor
-  ${pascalCaseName}Repository();
+  /// ${pascalCaseName} repository constructor
+  ${pascalCaseName}Repository({
+    @required this.localDataSource,
+    @required this.remoteDataSource,
+  })  : assert(localDataSource != null),
+        assert(remoteDataSource != null);
 
-  //TODO: Implement ${pascalCaseName} repository
+  final LocalDataSource localDataSource;
+  final RemoteDataSource remoteDataSource;
+
+  // TODO: Implement [I${pascalCaseName}Repository] methods
 }`;
 }

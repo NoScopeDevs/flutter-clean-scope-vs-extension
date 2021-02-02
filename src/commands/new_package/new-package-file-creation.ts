@@ -17,6 +17,8 @@ import {
 
   //Data
   getDataSourceTemplate,
+  getLocalDataSourceTemplate,
+  getRemoteDataSourceTemplate,
   getIRepositoryTemplate,
   getDataTemplate,
 } from "../../templates";
@@ -230,6 +232,60 @@ export function createDataSourceTemplate(
     writeFile(
       targetPath,
       getDataSourceTemplate(snakeCasePackageName),
+      "utf8",
+      (error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve();
+      }
+    );
+  });
+}
+
+export function createRemoteDataSourceTemplate(
+  packageName: string,
+  targetDirectory: string
+) {
+  const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
+  const targetPath = `${targetDirectory}/remote_datasource.dart`;
+  if (existsSync(targetPath)) {
+    throw Error(
+      `${snakeCasePackageName}_datasource.dart inside ${snakeCasePackageName} already exists`
+    );
+  }
+  return new Promise<void>(async (resolve, reject) => {
+    writeFile(
+      targetPath,
+      getRemoteDataSourceTemplate(snakeCasePackageName),
+      "utf8",
+      (error) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve();
+      }
+    );
+  });
+}
+
+export function createLocalDataSourceTemplate(
+  packageName: string,
+  targetDirectory: string
+) {
+  const snakeCasePackageName = changeCase.snakeCase(packageName.toLowerCase());
+  const targetPath = `${targetDirectory}/local_datasource.dart`;
+  if (existsSync(targetPath)) {
+    throw Error(
+      `${snakeCasePackageName}_datasource.dart inside ${snakeCasePackageName} already exists`
+    );
+  }
+  return new Promise<void>(async (resolve, reject) => {
+    writeFile(
+      targetPath,
+      getLocalDataSourceTemplate(snakeCasePackageName),
       "utf8",
       (error) => {
         if (error) {
