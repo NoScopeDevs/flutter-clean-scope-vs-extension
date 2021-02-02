@@ -18,6 +18,7 @@ function getBaseStateTemplate(name: string): string {
 
 part '${snakeCaseName}_state.freezed.dart';
 
+/// TODO: Run build_runner command to generate freezed code
 @freezed
 abstract class ${pascalCaseName}State with _$${pascalCaseName}State {
   /// Data is present state
