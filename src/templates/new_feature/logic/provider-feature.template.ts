@@ -14,19 +14,22 @@ function getBaseProviderTemplate(name: string): string {
   const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const cammelCaseName = changeCase.camelCase(name.toLowerCase());
-  return `part '${snakeCaseName}_state_notifier.dart';
+  return `import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '${snakeCaseName}_state_notifier.dart
+
+part '${snakeCaseName}_state_notifier.dart';
 
 /// Provider to use the ${pascalCaseName}StateNotifier
 final ${cammelCaseName}NotifierProvider = StateNotifierProvider(
-  (ref) => ${pascalCaseName}Notifier(),
+  (ref) => ${pascalCaseName}Notifier(ref),
 );
 
-/// ${pascalCaseName}Repository Provider
-final _${snakeCaseName}RepositoryProvider = Provider<I${pascalCaseName}Repository>(
-  (_) => ${pascalCaseName}Repository(),
-);
+/// Repositories Providers
+/// TODO: Create Repositories Providers
 
-/// Use cases`;
+/// Use Cases Providers
+/// TODO: Create Use Cases Providers`;
 }
 /*
 function getExampleProviderTemplate(name: string): string {

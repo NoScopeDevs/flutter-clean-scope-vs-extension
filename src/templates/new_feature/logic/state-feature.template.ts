@@ -23,6 +23,9 @@ abstract class ${pascalCaseName}State with _$${pascalCaseName}State {
   /// Data is present state, also default case
   const factory ${pascalCaseName}State() = Data;
 
+  /// Initial state
+  const factory ${pascalCaseName}State.initial() = Initial;
+
   /// Data is loading state
   const factory ${pascalCaseName}State.loading() = Loading;
 
