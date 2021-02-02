@@ -20,10 +20,10 @@ part '${snakeCaseName}_state.freezed.dart';
 
 @freezed
 abstract class ${pascalCaseName}State with _$${pascalCaseName}State {
-  /// Data is present state, also default case
+  /// Data is present state
   const factory ${pascalCaseName}State() = Data;
 
-  /// Initial state
+  /// Initial/default state
   const factory ${pascalCaseName}State.initial() = Initial;
 
   /// Data is loading state

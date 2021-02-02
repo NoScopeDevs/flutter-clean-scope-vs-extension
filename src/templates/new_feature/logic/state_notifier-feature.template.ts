@@ -15,7 +15,7 @@ function getBaseStateNotifierTemplate(name: string): string {
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const cammelCaseName = changeCase.camelCase(name.toLowerCase());
   return `part of '${snakeCaseName}_provider.dart';
-// TODO: Implement ${pascalCaseName} state notifier
+// TODO: Implement ${pascalCaseName} StateNotifier
 
 /// Defines all the ${pascalCaseName} logic the app will use
 class ${pascalCaseName}Notifier extends StateNotifier<${pascalCaseName}State> {
