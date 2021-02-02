@@ -16,7 +16,7 @@ function getBaseProviderTemplate(name: string): string {
   const cammelCaseName = changeCase.camelCase(name.toLowerCase());
   return `import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '${snakeCaseName}_state_notifier.dart
+import '${snakeCaseName}_state.dart';
 
 part '${snakeCaseName}_state_notifier.dart';
 
