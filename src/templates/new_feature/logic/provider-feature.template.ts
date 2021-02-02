@@ -11,17 +11,22 @@ export function getProviderTemplate(
 }
 
 function getBaseProviderTemplate(name: string): string {
-    const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const cammelCaseName = changeCase.camelCase(name.toLowerCase());
-  return `part of '${snakeCaseName}_state_notifier.dart';
+  return `part '${snakeCaseName}_state_notifier.dart';
 
-
-// ${pascalCaseName}Repository Provider
-final _${cammelCaseName}RepositoryProvider = Provider<I${pascalCaseName}Repository>(
-  (ref) => ${pascalCaseName}Repository(),
+/// Provider to use the ${pascalCaseName}StateNotifier
+final ${cammelCaseName}NotifierProvider = StateNotifierProvider(
+  (ref) => ${pascalCaseName}Notifier(),
 );
-`;
+
+/// ${pascalCaseName}Repository Provider
+final _${snakeCaseName}RepositoryProvider = Provider<I${pascalCaseName}Repository>(
+  (_) => ${pascalCaseName}Repository(),
+);
+
+/// Use cases`;
 }
 /*
 function getExampleProviderTemplate(name: string): string {

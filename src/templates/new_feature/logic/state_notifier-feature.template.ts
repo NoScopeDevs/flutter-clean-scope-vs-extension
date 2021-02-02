@@ -11,31 +11,18 @@ export function getStateNotifierTemplate(
 }
 
 function getBaseStateNotifierTemplate(name: string): string {
-    const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
+  const pascalCaseName = changeCase.pascalCase(name.toLowerCase());
   const snakeCaseName = changeCase.snakeCase(name.toLowerCase());
   const cammelCaseName = changeCase.camelCase(name.toLowerCase());
-  return `import 'package:equatable/equatable.dart';
-import 'package:riverpod/all.dart';
-import 'package:${snakeCaseName}/${snakeCaseName}.dart';
+  return `part of '${snakeCaseName}_provider.dart';
+// TODO: Implement ${pascalCaseName} state notifier
 
-part '${snakeCaseName}_state.dart';
-part '${snakeCaseName}_provider.dart';
-
-/// ${pascalCaseName} State notifier
-final ${cammelCaseName}NotifierProvider = StateNotifierProvider(
-  (ref) =>
-      ${pascalCaseName}Notifier(),
-);
-
-///${pascalCaseName}Notifier implementation of StateNotifier for ${pascalCaseName}State
+/// Defines all the ${pascalCaseName} logic the app will use
 class ${pascalCaseName}Notifier extends StateNotifier<${pascalCaseName}State> {
-  ///${pascalCaseName} Notifier Constructor
-  ${pascalCaseName}Notifier():
-        super(${pascalCaseName}Initial());
-
-    //TODO: Implement ${pascalCaseName}StateNotifier logic
-}
-`;
+  /// Base constructor expects a [ProviderReference] to 
+  /// read its usecases and also defines inital state
+  ${pascalCaseName}Notifier(ProviderReference ref) : super(${pascalCaseName}Initial());
+}`;
 }
 /*
 function getExampleStateNotifierTemplate(name: string): string {
