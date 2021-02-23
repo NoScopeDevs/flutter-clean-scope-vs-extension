@@ -19,9 +19,9 @@ function getBaseStateNotifierTemplate(name: string): string {
 
 /// Defines all the ${pascalCaseName} logic the app will use
 class ${pascalCaseName}Notifier extends StateNotifier<${pascalCaseName}State> {
-  /// Base constructor expects a [ProviderReference] to 
+  /// Base constructor expects StateNotifier use_cases to 
   /// read its usecases and also defines inital state
-  ${pascalCaseName}Notifier(ProviderReference ref) : super(${pascalCaseName}State.initial());
+  ${pascalCaseName}Notifier() : super(${pascalCaseName}State.initial());
 }`;
 }
 /*
