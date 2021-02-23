@@ -22,7 +22,7 @@ part '${snakeCaseName}_state_notifier.dart';
 
 /// Provider to use the ${pascalCaseName}StateNotifier
 final ${cammelCaseName}NotifierProvider = StateNotifierProvider(
-  (ref) => ${pascalCaseName}Notifier(ref),
+  (ref) => ${pascalCaseName}Notifier(),
 );
 
 /// Repositories Providers

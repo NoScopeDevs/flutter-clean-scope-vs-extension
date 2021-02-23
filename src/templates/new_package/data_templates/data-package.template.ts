@@ -30,5 +30,5 @@ export 'datasources/local_data_source.dart';
 export 'datasources/remote_data_source.dart';
 
 // Export Repositories Implementations
-export 'repositories/room_repository.dart';`;
+export 'repositories/${snakeCaseName}_repository.dart';`;
 }
