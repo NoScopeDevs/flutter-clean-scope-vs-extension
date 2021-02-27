@@ -1,6 +1,11 @@
-# flutter-clean-architecture
+## Introduction
 
-This extensions will make following clean architecture guidelines easier when using Flutter for development.
+This [VS Code](https://code.visualstudio.com/) extensions will make following clean architecture guidelines easier when using Flutter for development.
+
+## Installation
+
+[Install from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=NoScopeDevs.flutter-clean-scope) or by [searching within VS Code](https://code.visualstudio.com/docs/editor/extension-gallery#_search-for-an-extension).
+
 
 ## Feature
 
