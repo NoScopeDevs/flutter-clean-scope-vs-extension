@@ -1,6 +1,8 @@
+<h1>Flutter Clean Scope</h1>
+
 ## Introduction
 
-This [VS Code](https://code.visualstudio.com/) extensions will make following clean architecture guidelines easier when using Flutter for development.
+This [VS Code](https://code.visualstudio.com/) extension will make following Clean Architecture guidelines easier when using Flutter for development.
 
 ## Installation
 
