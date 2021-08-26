@@ -31,7 +31,7 @@ abstract class ${pascalCaseName}State with _$${pascalCaseName}State {
   const factory ${pascalCaseName}State.loading() = Loading;
 
   /// Error when loading data state
-  const factory ${pascalCaseName}State.error([String message]) = Error;
+  const factory ${pascalCaseName}State.error([String? message]) = Error;
 }`;
 }
 /*
